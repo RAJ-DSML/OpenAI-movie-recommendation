@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Recommendation</title>
+</head>
+<body>
+    <h1>Movie Recommendation</h1>
+    <form action="/recommend" method="post">
+        <label for="user_input">Enter your favorite movie or part of its name:</label>
+        <input type="text" id="user_input" name="user_input" required>
+        <label for="genre_input">Enter genre (optional):</label>
+        <input type="text" id="genre_input" name="genre_input">
+        <button type="submit">Get Recommendations</button>
+    </form>
+    <div id="recommendations"></div>
+</body>
+<script>
+    document.querySelector('form').onsubmit = async function(event) {
+        event.preventDefault();
+        const formData = new FormData(this);
+        const response = await fetch('/recommend', {
+            method: 'POST',
+            body: formData
+        });
+        const data = await response.json();
+        document.getElementById('recommendations').innerText = data.recommendations.join(', ');
+    };
+</script>
+</html>
