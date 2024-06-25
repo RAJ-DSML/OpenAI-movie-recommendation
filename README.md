@@ -27,6 +27,14 @@ This project combines a user-friendly web interface with robust backend processi
   ```sh
   git clone https://github.com/RAJ-DSML/OpenAI-movie-recommendation
   ```
+* Create a virtual environment (recommended)
+  ```sh
+  python -m venv venv
+  ```
+* Activate the 'venv' environment (recommended)
+  ```sh
+  venv\Scripts\activate
+  ```
 * Run the requirement.txt file
   ```sh
   pip install -r requirement.txt
